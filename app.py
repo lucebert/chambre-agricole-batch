@@ -27,7 +27,7 @@ def call_rd_api():
 
 async def main():
 
-    LANGGRAPH_DEPLOYMENT = "https://chambre-agricole-chatbot-686407044d7f59d29a1e494685864177.us.langgraph.app/"
+    LANGGRAPH_DEPLOYMENT = "https://le-chat-bottes-08847786c41355da87302fa1e0f41f4a.us.langgraph.app"
     #LANGGRAPH_DEPLOYMENT = "http://localhost:64975"
 
     client = get_client(url=LANGGRAPH_DEPLOYMENT)
