@@ -61,14 +61,13 @@ async def main():
         print(payload)
         
         try:
-            run = await client.runs.create(
+            async for chunk in client.runs.stream(
                 thread_id=thread["thread_id"],
                 assistant_id=assistants[0]["assistant_id"],
-                input=payload
-            )
-            print(f"Processing document: {payload['title']}")
-            print(f"URL: {run['kwargs']['input']['url']}")
-            print(f"Run ID: {run['run_id']}\n")
+                input=payload,
+                stream_mode="events"
+            ):
+                print(chunk)
         except Exception as e:
             print(f"Error processing document {payload['title']}: {str(e)}")
             continue
