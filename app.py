@@ -57,13 +57,14 @@ async def main():
             "url": urlDocument,
             "project_code": document.get("codeProjet"),
         }
+
+        print(payload)
         
         try:
             run = await client.runs.create(
                 thread_id=thread["thread_id"],
                 assistant_id=assistants[0]["assistant_id"],
-                input=payload,
-                multitask_strategy="enqueue"
+                input=payload
             )
             print(f"Processing document: {payload['title']}")
             print(f"URL: {run['kwargs']['input']['url']}")
